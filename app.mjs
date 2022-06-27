@@ -1,5 +1,6 @@
 import { Subject } from "./subject.mjs";
 import { LMS } from "./lms.mjs";
+import { Teachers } from "./teachers.mjs";
 
 function main() {
   // Subject
@@ -13,15 +14,47 @@ function main() {
     lessons: 30,
   });
 
-  console.log(history.id, math.id);
+  // console.log(history.id, math.id);
 
   // LMS
   const lms = new LMS();
-  lms.add(history);
-  lms.add(math);
+  // lms.add(history);
+  // lms.add(math);
   // lms.remove(history);
-  console.log(lms.verify(math), lms.verify(history));
-  console.log(lms.readAll());
+  // console.log(lms.verify(math), lms.verify(history));
+  // console.log(lms.readAll());
+
+  // Teachers
+  const teachers = new Teachers();
+  const teacherTamta = {
+    name: {
+      first: "Tamta",
+      last: "Jojua",
+    },
+    dateOfBirth: "01-01-2000",
+    // emails: [
+    //   {
+    //     email: "tamta@gmail.com",
+    //     primary: true,
+    //   },
+    // ],
+    // phones: [
+    //   {
+    //     phone: "45656569595",
+    //     primary: true,
+    //   },
+    // ],
+    // sex: "female",
+    // subjects: [
+    //   {
+    //     subject: "Math",
+    //   },
+    // ],
+    // description: "my subject",
+  };
+
+  const teacherId = teachers.add(teacherTamta);
+  console.log("teacher ID", teacherId);
 }
 
 main();
