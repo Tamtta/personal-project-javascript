@@ -32,18 +32,18 @@ function main() {
       last: "Jojua",
     },
     dateOfBirth: "01-01-2000",
-    // emails: [
-    //   {
-    //     email: "tamta@gmail.com",
-    //     primary: true,
-    //   },
-    // ],
-    // phones: [
-    //   {
-    //     phone: "45656569595",
-    //     primary: true,
-    //   },
-    // ],
+    emails: [
+      {
+        email: "tamta@gmail.com",
+        primary: true,
+      },
+    ],
+    phones: [
+      {
+        phone: "+995555118865",
+        primary: true,
+      },
+    ],
     // sex: "female",
     // subjects: [
     //   {
