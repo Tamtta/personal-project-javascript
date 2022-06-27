@@ -53,14 +53,15 @@ export class Teachers {
       }
     }
     // phones
-    if (data.phones && Array.isArray(data.phones)) {
+    if (!data.phones) {
+      throw new Error("Parameter is missing!");
+    } else if (Array.isArray(data.phones)) {
       for (let i = 0; i < data.phones.length; i++) {
-        if (data.phones[i].phone && typeof data.phones[i].phone !== "string") {
+        if (!data.phones[i].phone) {
+          throw new Error("Parameter is missing!");
+        } else if (typeof data.phones[i].phone !== "string") {
           throw new Error("Parameter is not a string!");
-        } else if (
-          data.phones[i].phone &&
-          typeof data.phones[i].phone === "string"
-        ) {
+        } else {
           let regExp =
             /^\+?([995]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/;
           if (!regExp.test(data.phones[i].phone)) {
@@ -70,38 +71,41 @@ export class Teachers {
       }
 
       for (let i = 0; i < data.phones.length; i++) {
-        if (
-          data.phones[i].primary &&
-          typeof data.phones[i].primary !== "boolean"
-        ) {
+        if (!data.phones[i].primary) {
+          throw new Error("Parameter is missing!");
+        } else if (typeof data.phones[i].primary !== "boolean") {
           throw new Error("Parameter should be a boolean!");
         }
       }
     }
-
-    if (data.sex && typeof data.sex !== "string") {
+    // sex
+    if (!data.sex) {
+      throw new Error("Parameter is missing!");
+    } else if (typeof data.sex !== "string") {
       throw new Error("Parameter is not a string! ");
-    } else if (data.sex && typeof data.sex === "string") {
+    } else {
       if (data.sex !== "male" && data.sex !== "female") {
         throw new Error("Given parameter is not valid!");
       }
     }
-
-    if (data.subjects && Array.isArray(data.subjects)) {
+    // subjects
+    if (!data.subjects) {
+      throw new Error("Parameter is missing!");
+    } else if (Array.isArray(data.subjects)) {
       for (let i = 0; i < data.subjects.length; i++) {
-        if (
-          data.subjects[i].subject &&
-          typeof data.subjects[i].subject !== "string"
-        ) {
+        if (!data.subjects[i].subject) {
+          throw new Error("Parameter is missing!");
+        } else if (typeof data.subjects[i].subject !== "string") {
           throw new Error("Parameter is not a string!");
         }
       }
     }
-
+    // description
     if (data.description && typeof data.description !== "string") {
       throw new Error("Parameter is not a string!");
     }
   }
+
   add(data) {
     this.#validateData(data, true);
     data.id = `${Math.ceil(Math.random() * 10000)}`;

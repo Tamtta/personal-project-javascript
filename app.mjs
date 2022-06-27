@@ -50,7 +50,7 @@ function main() {
         subject: "math",
       },
     ],
-    // description: "123",
+    // description: 123,
   };
 
   const teacherId = teachers.add(teacherTamta);
