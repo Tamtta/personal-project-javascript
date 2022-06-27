@@ -4,10 +4,14 @@ export class Subject {
   id;
 
   constructor(data) {
-    if (data.title && typeof data.title !== "string") {
+    if (!data.title) {
+      throw new Error("Parameter is missing!");
+    } else if (typeof data.title !== "string") {
       throw new Error("Title is not a string!");
     }
-    if (data.lessons && typeof data.lessons !== "number") {
+    if (!data.lessons) {
+      throw new Error("Parameter is missing!");
+    } else if (typeof data.lessons !== "number") {
       throw new Error("Parameter is not a number!");
     }
 

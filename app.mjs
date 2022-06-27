@@ -14,7 +14,7 @@ function main() {
     lessons: 30,
   });
 
-  // console.log(history.id, math.id);
+  console.log(history.id, math.id);
 
   // LMS
   const lms = new LMS();
