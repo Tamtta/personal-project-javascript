@@ -44,13 +44,13 @@ function main() {
         primary: true,
       },
     ],
-    // sex: "female",
-    // subjects: [
-    //   {
-    //     subject: "Math",
-    //   },
-    // ],
-    // description: "my subject",
+    sex: "male",
+    subjects: [
+      {
+        subject: "math",
+      },
+    ],
+    // description: "123",
   };
 
   const teacherId = teachers.add(teacherTamta);
