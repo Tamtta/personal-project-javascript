@@ -3,6 +3,7 @@ import { LMS } from "./lms.mjs";
 import { Teachers } from "./teachers.mjs";
 import { Pupils } from "./pupils.mjs";
 import { Groups } from "./groups.mjs";
+import { Gradebooks } from "./gradebooks.mjs";
 
 function main() {
   // Subject
@@ -12,15 +13,15 @@ function main() {
   });
 
   const math = new Subject({
-    title: "Mathematics",
+    title: "Math",
     lessons: 30,
   });
   // console.log("history ID", history.id, "math ID", math.id);
 
   // LMS
   const lms = new LMS();
-  // lms.add(history);
-  // lms.add(math);
+  lms.add(history);
+  lms.add(math);
   // lms.remove(history);
   // console.log(lms.verify(math), lms.verify(history));
   // console.log(lms.readAll());
@@ -56,8 +57,8 @@ function main() {
 
   const teacherTamta2 = {
     name: {
-      first: "Tamtuki",
-      last: "Jojua",
+      first: "Kote ",
+      last: "Kirkitadze",
     },
     dateOfBirth: "01-01-1999",
     emails: [
@@ -109,6 +110,7 @@ function main() {
   };
 
   const teacherId = teachers.add(teacherTamta);
+  // console.log(teacherId);
   const teacherId2 = teachers.add(teacherTamta2);
   // console.log("teacher ID 1", teacherId, "teacher ID 2", teacherId2);
   // console.log("read ", teachers.read(teacherId));
@@ -118,8 +120,8 @@ function main() {
   const pupils = new Pupils();
   const pupilTamta = {
     name: {
-      first: "anano",
-      last: "cxadadze",
+      first: "Anano",
+      last: "Tskhadadze",
     },
     dateOfBirth: "01-01-2000",
     phones: [
@@ -147,6 +149,7 @@ function main() {
     // description: 123,
   };
   const pupil = pupils.add(pupilTamta);
+  // console.log(pupil);
   const pupil2 = pupils.add(newPupil);
   // console.log(pupil.id);
   // console.log(pupils.read(pupil.id));
@@ -155,13 +158,13 @@ function main() {
 
   // Groups
   const room = 236;
-  const room1 = 240;
+  // const room1 = 240;
   const groups = new Groups();
   const groupId = groups.add(room);
-  const groupId1 = groups.add(room1);
-  console.log(groupId, groupId1);
-  // groups.addPupil(groupId, pupil);
-  // groups.addPupil(groupId, pupil2);
+  // const groupId1 = groups.add(room1);
+  // console.log(groupId);
+  groups.addPupil(groupId, pupil);
+  groups.addPupil(groupId, pupil2);
   // console.log("before ", groups.read(groupId));
   // groups.removePupil(groupId, pupil.id);
   // console.log(groups);
@@ -171,7 +174,34 @@ function main() {
   // });
 
   // console.log("after", groups.read(groupId));
-  console.log("readall", groups.readAll());
+  // console.log("readall", groups.readAll());
+
+  // gradebook
+  const pupilId = pupil.id;
+  const record = {
+    pupilId: pupilId,
+    teacherId: teacherId2,
+    subjectId: history.id,
+    lesson: 1,
+    mark: 9,
+  };
+
+  const record2 = {
+    pupilId: pupilId,
+    teacherId: teacherId,
+    subjectId: math.id,
+    lesson: 2,
+    mark: 10,
+  };
+
+  const gradebooks = new Gradebooks(groups, teachers, lms);
+  const gradebookId = gradebooks.add(groupId);
+  // console.log("id", gradebookId);
+  // console.log(gradebooks.clear());
+  gradebooks.addRecord(gradebookId, record);
+  gradebooks.addRecord(gradebookId, record2);
+  console.log(gradebooks.read(gradebookId, pupilId));
+  // console.log(gradebooks.readAll(gradebookId));
 }
 
 main();
