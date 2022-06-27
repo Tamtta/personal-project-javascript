@@ -2,6 +2,7 @@ import { Subject } from "./subject.mjs";
 import { LMS } from "./lms.mjs";
 import { Teachers } from "./teachers.mjs";
 import { Pupils } from "./pupils.mjs";
+import { Groups } from "./groups.mjs";
 
 function main() {
   // Subject
@@ -146,10 +147,31 @@ function main() {
     // description: 123,
   };
   const pupil = pupils.add(pupilTamta);
+  const pupil2 = pupils.add(newPupil);
   // console.log(pupil.id);
   // console.log(pupils.read(pupil.id));
   // console.log(pupils.update(pupil.id, newPupil));
   // console.log(pupils.remove(pupil.id));
+
+  // Groups
+  const room = 236;
+  const room1 = 240;
+  const groups = new Groups();
+  const groupId = groups.add(room);
+  const groupId1 = groups.add(room1);
+  console.log(groupId, groupId1);
+  // groups.addPupil(groupId, pupil);
+  // groups.addPupil(groupId, pupil2);
+  // console.log("before ", groups.read(groupId));
+  // groups.removePupil(groupId, pupil.id);
+  // console.log(groups);
+
+  // groups.update(groupId, {
+  //   room: 237,
+  // });
+
+  // console.log("after", groups.read(groupId));
+  console.log("readall", groups.readAll());
 }
 
 main();
