@@ -117,10 +117,12 @@ export class Teachers {
     return this.teachers.find((t) => t.id == id);
   }
 
-  update(id, updateProfile) {
+  update(id, updatedProfile) {
+    this.#validateData(updatedProfile, true);
     const index = this.teachers.findIndex((t) => t.id == id);
-    updateProfile.id = id;
-    this.teachers.splice(index, 1, updateProfile);
+    updatedProfile.id = id;
+    this.teachers.splice(index, 1, updatedProfile);
+    return this.teachers;
   }
 
   remove(teacherId) {
