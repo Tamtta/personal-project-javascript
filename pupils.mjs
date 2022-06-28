@@ -86,6 +86,7 @@ export class Pupils {
     const index = this.pupils.findIndex((p) => p.id == id);
     updatedProfile.id = id;
     this.pupils.splice(index, 1, updatedProfile);
+    // this.pupils.slice(index, index + 1);
     return updatedProfile;
   }
 
