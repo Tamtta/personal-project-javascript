@@ -122,7 +122,7 @@ export class Teachers {
     const index = this.teachers.findIndex((t) => t.id == id);
     updatedProfile.id = id;
     this.teachers.splice(index, 1, updatedProfile);
-    return this.teachers;
+    return updatedProfile;
   }
 
   remove(teacherId) {

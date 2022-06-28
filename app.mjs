@@ -42,34 +42,34 @@ function main() {
     ],
     phones: [
       {
-        phone: "+995555118865",
+        phone: "+995555111111",
         primary: true,
       },
     ],
     sex: "male",
     subjects: [
       {
-        subject: "math",
+        subject: "history",
       },
     ],
     // description: 123,
   };
 
-  const teacherTamta2 = {
+  const teacherNinka = {
     name: {
-      first: "Kote ",
-      last: "Kirkitadze",
+      first: "Ninka ",
+      last: "Benidze",
     },
     dateOfBirth: "01-01-1999",
     emails: [
       {
-        email: "tamta@gmail.com",
+        email: "ninka@gmail.com",
         primary: true,
       },
     ],
     phones: [
       {
-        phone: "+995555118865",
+        phone: "+995555888888",
         primary: true,
       },
     ],
@@ -111,14 +111,15 @@ function main() {
 
   const teacherId = teachers.add(teacherTamta);
   // console.log(teacherId);
-  const teacherId2 = teachers.add(teacherTamta2);
+  const teacherId2 = teachers.add(teacherNinka);
   // console.log("teacher ID 1", teacherId, "teacher ID 2", teacherId2);
-  // console.log("read ", teachers.read(teacherId));
-  // console.log("update", teachers.update(teacherId2, newTeacher));
+  // console.log("before ", teachers.read(teacherId));
+  // console.log("update", teachers.update(teacherId, newTeacher));
+  // console.log("after ", teachers.read(teacherId));
 
   // pupils
   const pupils = new Pupils();
-  const pupilTamta = {
+  const pupilAnano = {
     name: {
       first: "Anano",
       last: "Tskhadadze",
@@ -126,17 +127,32 @@ function main() {
     dateOfBirth: "01-01-2000",
     phones: [
       {
-        phone: "+995555118865",
+        phone: "+995555112233",
+        primary: true,
+      },
+    ],
+    sex: "female",
+    // description: 123,
+  };
+  const newPupil = {
+    name: {
+      first: "Robert",
+      last: "Oganezov",
+    },
+    dateOfBirth: "01-01-2000",
+    phones: [
+      {
+        phone: "+995555555555",
         primary: true,
       },
     ],
     sex: "male",
     // description: 123,
   };
-  const newPupil = {
+  const pupil123 = {
     name: {
-      first: "robert",
-      last: "oganezov",
+      first: "123",
+      last: "123",
     },
     dateOfBirth: "01-01-2000",
     phones: [
@@ -148,13 +164,15 @@ function main() {
     sex: "male",
     // description: 123,
   };
-  const pupil = pupils.add(pupilTamta);
+  const pupil = pupils.add(pupilAnano);
   // console.log(pupil);
-  const pupil2 = pupils.add(newPupil);
-  // console.log(pupil.id);
-  // console.log(pupils.read(pupil.id));
-  // console.log(pupils.update(pupil.id, newPupil));
+  // const pupil2 = pupils.add(pupil123);
+  console.log(pupil.id);
+  // console.log("before", pupils.read(pupil.id));
+  console.log("update", pupils.update(pupil.id, newPupil));
+  // console.log("after", pupils.read(pupil.id));
   // console.log(pupils.remove(pupil.id));
+  // console.log("readall", pupils.readAll());
 
   // Groups
   const room = 236;
@@ -164,7 +182,7 @@ function main() {
   // const groupId1 = groups.add(room1);
   // console.log(groupId);
   groups.addPupil(groupId, pupil);
-  groups.addPupil(groupId, pupil2);
+  // groups.addPupil(groupId, pupil2);
   // console.log("before ", groups.read(groupId));
   // groups.removePupil(groupId, pupil.id);
   // console.log(groups);
@@ -180,27 +198,27 @@ function main() {
   const pupilId = pupil.id;
   const record = {
     pupilId: pupilId,
-    teacherId: teacherId2,
+    teacherId: teacherId,
     subjectId: history.id,
     lesson: 1,
     mark: 9,
   };
 
-  const record2 = {
-    pupilId: pupilId,
-    teacherId: teacherId,
-    subjectId: math.id,
-    lesson: 2,
-    mark: 10,
-  };
+  // const record2 = {
+  //   pupilId: pupilId,
+  //   teacherId: teacherId,
+  //   subjectId: math.id,
+  //   lesson: 2,
+  //   mark: 10,
+  // };
 
   const gradebooks = new Gradebooks(groups, teachers, lms);
   const gradebookId = gradebooks.add(groupId);
   // console.log("id", gradebookId);
   // console.log(gradebooks.clear());
   gradebooks.addRecord(gradebookId, record);
-  gradebooks.addRecord(gradebookId, record2);
-  console.log(gradebooks.read(gradebookId, pupilId));
+  // gradebooks.addRecord(gradebookId, record2);
+  console.log(pupilId, gradebooks.read(gradebookId, pupilId));
   // console.log(gradebooks.readAll(gradebookId));
 }
 

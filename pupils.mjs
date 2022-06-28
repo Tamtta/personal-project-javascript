@@ -80,7 +80,7 @@ export class Pupils {
     const index = this.pupils.findIndex((p) => p.id == id);
     updatedProfile.id = id;
     this.pupils.splice(index, 1, updatedProfile);
-    return this.pupils;
+    return updatedProfile;
   }
 
   remove(pupilId) {
