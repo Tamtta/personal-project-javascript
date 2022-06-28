@@ -72,11 +72,17 @@ export class Pupils {
   }
 
   read(id) {
+    if (typeof id !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     return this.pupils.find((p) => p.id == id);
   }
 
   update(id, updatedProfile) {
     this.#validateData(updatedProfile, true);
+    if (typeof id !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     const index = this.pupils.findIndex((p) => p.id == id);
     updatedProfile.id = id;
     this.pupils.splice(index, 1, updatedProfile);
@@ -84,6 +90,9 @@ export class Pupils {
   }
 
   remove(pupilId) {
+    if (typeof pupilId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     this.pupils = this.pupils.filter((p) => p.id != pupilId);
   }
 }

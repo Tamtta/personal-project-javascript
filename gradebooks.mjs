@@ -10,6 +10,9 @@ export class Gradebooks {
   }
 
   add(groupId) {
+    if (typeof groupId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     const newGradeBook = {
       gradebookId: groupId,
       records: [],
@@ -23,6 +26,9 @@ export class Gradebooks {
   }
 
   addRecord(gradebookId, record) {
+    if (typeof gradebookId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     if (!record.pupilId) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.pupilId !== "string") {
@@ -57,6 +63,12 @@ export class Gradebooks {
   }
 
   read(gradebookId, pupilId) {
+    if (typeof gradebookId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
+    if (typeof pupilId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     const gradeBook = this.gradeBooks.find(
       (gradebook) => gradebook.gradebookId == gradebookId
     );
@@ -85,6 +97,9 @@ export class Gradebooks {
   }
 
   readAll(gradebookId) {
+    if (typeof gradebookId !== "string") {
+      throw new Error("Type of parameter is not a string!");
+    }
     return this.gradeBooks.find((grBook) => grBook.gradebookId == gradebookId);
   }
 }

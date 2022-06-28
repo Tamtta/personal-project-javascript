@@ -167,12 +167,11 @@ function main() {
   const pupil = pupils.add(pupilAnano);
   // console.log(pupil);
   // const pupil2 = pupils.add(pupil123);
-  console.log(pupil.id);
+  // console.log(pupil.id);
   // console.log("before", pupils.read(pupil.id));
-  console.log("update", pupils.update(pupil.id, newPupil));
+  // console.log("update", pupils.update(pupil.id, newPupil));
   // console.log("after", pupils.read(pupil.id));
   // console.log(pupils.remove(pupil.id));
-  // console.log("readall", pupils.readAll());
 
   // Groups
   const room = 236;
@@ -180,7 +179,7 @@ function main() {
   const groups = new Groups();
   const groupId = groups.add(room);
   // const groupId1 = groups.add(room1);
-  // console.log(groupId);
+  console.log(groupId);
   groups.addPupil(groupId, pupil);
   // groups.addPupil(groupId, pupil2);
   // console.log("before ", groups.read(groupId));
@@ -218,8 +217,8 @@ function main() {
   // console.log(gradebooks.clear());
   gradebooks.addRecord(gradebookId, record);
   // gradebooks.addRecord(gradebookId, record2);
-  console.log(pupilId, gradebooks.read(gradebookId, pupilId));
-  // console.log(gradebooks.readAll(gradebookId));
+  // console.log(gradebooks.read(gradebookId, pupilId));
+  //   console.log(gradebooks.readAll(gradebookId));
 }
 
 main();
