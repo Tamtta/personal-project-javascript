@@ -2,21 +2,32 @@ export class Teachers {
   teachers = [];
   #validateData(data) {
     // name
+    if (!data.name) {
+      throw new Error("Parameter is missing!");
+    } else if (typeof data.name === "undefined") {
+      throw new TypeError("undefined");
+    }
     if (!data.name.first) {
       throw new Error("Parameter is missing!");
     } else if (typeof data.name.first !== "string") {
       throw new Error("First name is not a string!");
+    } else if (typeof data.name.first === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!data.name.last) {
       throw new Error("Parameter is missing!");
     } else if (typeof data.name.last !== "string") {
       throw new Error("Last name is not a string!");
+    } else if (typeof data.name.last === "undefined") {
+      throw new TypeError("undefined");
     }
     // dateOfBirth
     if (!data.dateOfBirth) {
       throw new Error("Parameter is missing!");
     } else if (typeof data.dateOfBirth !== "string") {
       throw new Error("Parameter is not a string!");
+    } else if (typeof data.dateOfBirth === "undefined") {
+      throw new TypeError("undefined");
     } else if (data.dateOfBirth && typeof data.dateOfBirth === "string") {
       if (!Date.parse(data.dateOfBirth)) {
         throw new Error("Date format is incorrect");
@@ -31,6 +42,8 @@ export class Teachers {
           throw new Error("Parameter is missing!");
         } else if (typeof data.emails[i].email !== "string") {
           throw new Error("Parameter is not a string!");
+        } else if (typeof data.emails[i].email === "undefined") {
+          throw new TypeError("undefined");
         } else {
           if (
             !data.emails[i].email
@@ -49,6 +62,8 @@ export class Teachers {
           throw new Error("Parameter is missing!");
         } else if (typeof data.emails[i].primary !== "boolean") {
           throw new Error("Parameter should be a boolean!");
+        } else if (typeof data.emails[i].primary === "undefined") {
+          throw new TypeError("undefined");
         }
       }
     }
@@ -61,6 +76,8 @@ export class Teachers {
           throw new Error("Parameter is missing!");
         } else if (typeof data.phones[i].phone !== "string") {
           throw new Error("Parameter is not a string!");
+        } else if (typeof data.phones[i].phone === "undefined") {
+          throw new TypeError("undefined");
         } else {
           let regExp =
             /^\+?([995]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/;
@@ -75,6 +92,8 @@ export class Teachers {
           throw new Error("Parameter is missing!");
         } else if (typeof data.phones[i].primary !== "boolean") {
           throw new Error("Parameter should be a boolean!");
+        } else if (typeof data.phones[i].primary === "undefined") {
+          throw new TypeError("undefined");
         }
       }
     }
@@ -83,6 +102,8 @@ export class Teachers {
       throw new Error("Parameter is missing!");
     } else if (typeof data.sex !== "string") {
       throw new Error("Parameter is not a string! ");
+    } else if (typeof data.sex === "undefined") {
+      throw new TypeError("undefined");
     } else {
       if (data.sex !== "male" && data.sex !== "female") {
         throw new Error("Given parameter is not valid!");
@@ -97,12 +118,16 @@ export class Teachers {
           throw new Error("Parameter is missing!");
         } else if (typeof data.subjects[i].subject !== "string") {
           throw new Error("Parameter is not a string!");
+        } else if (typeof data.subjects[i].subject === "undefined") {
+          throw new TypeError("undefined");
         }
       }
     }
     // description
     if (data.description && typeof data.description !== "string") {
       throw new Error("Parameter is not a string!");
+    } else if (data.description && typeof data.description === "undefined") {
+      throw new TypeError("undefined");
     }
   }
 

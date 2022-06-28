@@ -170,8 +170,8 @@ function main() {
   // console.log(pupil.id);
   // console.log("before", pupils.read(pupil.id));
   const updated = pupils.update(pupil.id, newPupil);
-  console.log(updated);
-  console.log("after", pupils.read(pupil.id));
+  // console.log(updated);
+  // console.log("after", pupils.read(pupil.id));
   // console.log(pupils.remove(pupil.id));
 
   // Groups
@@ -181,8 +181,8 @@ function main() {
   const groupId = groups.add(room);
   // const groupId1 = groups.add(room1);
   // console.log(groupId);
-  // groups.addPupil(groupId, pupil);
-  groups.addPupil(groupId, updated);
+  groups.addPupil(groupId, pupil);
+  // groups.addPupil(groupId, updated);
   // groups.addPupil(groupId, pupil2);
   // console.log("before ", groups.read(groupId));
   // groups.removePupil(groupId, pupil.id);

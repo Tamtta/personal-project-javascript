@@ -8,11 +8,15 @@ export class Subject {
       throw new Error("Parameter is missing!");
     } else if (typeof data.title !== "string") {
       throw new Error("Title is not a string!");
+    } else if (typeof data.title === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!data.lessons) {
       throw new Error("Parameter is missing!");
     } else if (typeof data.lessons !== "number") {
       throw new Error("Parameter is not a number!");
+    } else if (typeof data.lessons === "undefined") {
+      throw new TypeError("undefined");
     }
 
     this.title = data.title;
@@ -23,6 +27,8 @@ export class Subject {
       this.description = data.description;
     } else if (data.description && typeof data.description !== "string") {
       throw new Error("Parameter is not a string!");
+    } else if (data.description && typeof data.description === "undefined") {
+      throw new TypeError("undefined");
     }
   }
 }

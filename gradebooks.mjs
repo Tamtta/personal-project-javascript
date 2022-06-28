@@ -32,27 +32,37 @@ export class Gradebooks {
     if (!record.pupilId) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.pupilId !== "string") {
-      throw new Error("First name is not a string!");
+      throw new Error("Type of parameter is not a string!");
+    } else if (typeof record.pupilId === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!record.teacherId) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.teacherId !== "string") {
-      throw new Error("First name is not a string!");
+      throw new Error("Type of parameter is not a string!");
+    } else if (typeof record.teacherId === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!record.subjectId) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.subjectId !== "string") {
-      throw new Error("First name is not a string!");
+      throw new Error("Type of parameter is not a string!");
+    } else if (typeof record.subjectId === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!record.lesson) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.lesson !== "number") {
-      throw new Error("First name is not a string!");
+      throw new Error("Type of parameter is not a string!");
+    } else if (typeof record.lesson === "undefined") {
+      throw new TypeError("undefined");
     }
     if (!record.mark) {
       throw new Error("Parameter is missing!");
     } else if (typeof record.mark !== "number") {
-      throw new Error("First name is not a string!");
+      throw new Error("Type of parameter is not a string!");
+    } else if (typeof record.mark === "undefined") {
+      throw new TypeError("undefined");
     }
 
     const gradeBook = this.gradeBooks.find(
@@ -78,11 +88,35 @@ export class Gradebooks {
     const pupilData = this.groups
       .read(gradebookId)
       .pupils.find((p) => p.id == pupilId);
+
+    if (!pupilData) {
+      throw new Error("undefined");
+    }
+    if (typeof pupilData.name === "undefined") {
+      throw new TypeError("undefined");
+    }
+    if (typeof pupilData.name.first === "undefined") {
+      throw new TypeError("undefined");
+    }
+    if (typeof pupilData.name.last === "undefined") {
+      throw new TypeError("undefined");
+    }
     const recordDataForPupil = {
       name: `${pupilData.name.first} ${pupilData.name.last}`,
       records: recordsData.map((r) => {
         const teacherData = this.teachers.read(r.teacherId);
-
+        if (!teacherData) {
+          throw new Error("undefined");
+        }
+        if (typeof teacherData.name === "undefined") {
+          throw new TypeError("undefined");
+        }
+        if (typeof teacherData.name.first === "undefined") {
+          throw new TypeError("undefined");
+        }
+        if (typeof teacherData.name.last === "undefined") {
+          throw new TypeError("undefined");
+        }
         const subjectData = this.lms.readAll().find((s) => s.id == r.subjectId);
         return {
           teacher: `${teacherData.name.first} ${teacherData.name.last}`,
