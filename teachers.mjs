@@ -133,7 +133,7 @@ export class Teachers {
 
   add(data) {
     this.#validateData(data, true);
-    data.id = `${Math.ceil(Math.random() * 10000)}`;
+    data.id = `${Math.random().toString(36).substring(4, 12)}`;
     this.teachers.push(data);
     return data.id;
   }

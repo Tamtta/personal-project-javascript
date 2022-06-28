@@ -16,14 +16,14 @@ function main() {
     title: "Math",
     lessons: 30,
   });
-  // console.log("history ID", history.id, "math ID", math.id);
+  console.log("history ID", history.id, "math ID", math.id);
 
   // LMS
   const lms = new LMS();
   lms.add(history);
   lms.add(math);
   // lms.remove(history);
-  // console.log(lms.verify(math), lms.verify(history));
+  console.log(lms.verify(math), lms.verify(history));
   // console.log(lms.readAll());
 
   // Teachers
@@ -112,7 +112,7 @@ function main() {
   const teacherId = teachers.add(teacherTamta);
   // console.log(teacherId);
   const teacherId2 = teachers.add(teacherNinka);
-  // console.log("teacher ID 1", teacherId, "teacher ID 2", teacherId2);
+  console.log("teacher ID 1", teacherId, "teacher ID 2", teacherId2);
   // console.log("before ", teachers.read(teacherId));
   // console.log("update", teachers.update(teacherId, newTeacher));
   // console.log("after ", teachers.read(teacherId));
@@ -167,7 +167,7 @@ function main() {
   const pupil = pupils.add(pupilAnano);
   // console.log(pupil);
   // const pupil2 = pupils.add(pupil123);
-  // console.log(pupil.id);
+  console.log("pupil id", pupil.id);
   // console.log("before", pupils.read(pupil.id));
   const updated = pupils.update(pupil.id, newPupil);
   // console.log(updated);
@@ -180,9 +180,9 @@ function main() {
   const groups = new Groups();
   const groupId = groups.add(room);
   // const groupId1 = groups.add(room1);
-  // console.log(groupId);
-  groups.addPupil(groupId, pupil);
-  // groups.addPupil(groupId, updated);
+  console.log("group ID", groupId);
+  // groups.addPupil(groupId, pupil);
+  groups.addPupil(groupId, updated);
   // groups.addPupil(groupId, pupil2);
   // console.log("before ", groups.read(groupId));
   // groups.removePupil(groupId, pupil.id);
@@ -215,7 +215,7 @@ function main() {
 
   const gradebooks = new Gradebooks(groups, teachers, lms);
   const gradebookId = gradebooks.add(groupId);
-  // console.log("id", gradebookId);
+  console.log("gradebook id", gradebookId);
   // console.log(gradebooks.clear());
   gradebooks.addRecord(gradebookId, record);
   // gradebooks.addRecord(gradebookId, record2);

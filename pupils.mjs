@@ -85,7 +85,7 @@ export class Pupils {
 
   add(data) {
     this.#validateData(data, true);
-    data.id = `${Math.ceil(Math.random() * 10000)}`;
+    data.id = `${Math.random().toString(36).substring(3, 11)}`;
     this.pupils.push(data);
     return data;
   }

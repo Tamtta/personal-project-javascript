@@ -21,7 +21,7 @@ export class Subject {
 
     this.title = data.title;
     this.lessons = data.lessons;
-    this.id = `${Math.ceil(Math.random() * 10000)}`;
+    this.id = `${Math.random().toString(36).substring(3, 11)}`;
 
     if (data.description && typeof data.description == "string") {
       this.description = data.description;
