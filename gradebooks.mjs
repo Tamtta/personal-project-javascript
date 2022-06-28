@@ -90,7 +90,9 @@ export class Gradebooks {
       .pupils.find((p) => p.id == pupilId);
 
     if (!pupilData) {
-      throw new Error("undefined");
+      throw new Error("data not found");
+    } else if (typeof pupilData === "undefined") {
+      throw new TypeError("undefined");
     }
     if (typeof pupilData.name === "undefined") {
       throw new TypeError("undefined");
@@ -106,7 +108,9 @@ export class Gradebooks {
       records: recordsData.map((r) => {
         const teacherData = this.teachers.read(r.teacherId);
         if (!teacherData) {
-          throw new Error("undefined");
+          throw new Error("data not found");
+        } else if (typeof pupilData === "undefined") {
+          throw new TypeError("undefined");
         }
         if (typeof teacherData.name === "undefined") {
           throw new TypeError("undefined");
