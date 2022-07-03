@@ -1,7 +1,8 @@
 import { typePupil } from "./types";
+import { typeGroup } from "./types";
 
 export class Groups {
-  groups = [];
+  groups: typeGroup[] = [];
 
   add(roomID: number) {
     const room = {

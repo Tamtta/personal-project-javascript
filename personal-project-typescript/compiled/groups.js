@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.Groups = void 0;
 var Groups = /** @class */ (function () {
     function Groups() {
@@ -9,7 +9,7 @@ var Groups = /** @class */ (function () {
         var room = {
             id: "".concat(Math.random().toString(36).substring(2, 10)),
             room: roomID,
-            pupils: [],
+            pupils: []
         };
         this.groups.push(room);
         return room.id;
