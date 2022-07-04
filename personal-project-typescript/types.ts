@@ -4,8 +4,11 @@ export type subjectLMS = {
   id: string;
   description?: string;
 };
-export type male = "male";
-export type female = "female";
+
+type Sex = "male" | "female";
+interface Sex1 {
+  sex: Sex;
+}
 
 export type typeTeacher = {
   name: {
@@ -21,7 +24,7 @@ export type typeTeacher = {
     phone: string;
     primary: boolean;
   }[];
-  sex: string;
+  sex: "male" | "female";
   subjects: {
     subject: string;
   }[];
@@ -39,7 +42,7 @@ export type typePupil = {
     phone: string;
     primary: boolean;
   }[];
-  sex: string;
+  sex: "male" | "female";
   description?: string;
   id?: string;
 };

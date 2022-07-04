@@ -48,7 +48,9 @@ export class Gradebooks {
     const pupilData: typePupil = this.groups
       .read(gradebookId)
       .pupils.find((p) => p.id == pupilId);
-
+    if (typeof pupilData === "undefined") {
+      throw new Error("Type of data does not exist ");
+    }
     const recordDataForPupil = {
       name: `${pupilData.name.first} ${pupilData.name.last}`,
       records: recordsData.map(
@@ -60,7 +62,9 @@ export class Gradebooks {
           mark: number;
         }) => {
           const teacherData: typeTeacher = this.teachers.read(r.teacherId);
-
+          if (typeof teacherData === "undefined") {
+            throw new Error("Type of data does not exist ");
+          }
           const subjectData = this.lms
             .readAll()
             .find((s: { id: string }) => s.id == r.subjectId);

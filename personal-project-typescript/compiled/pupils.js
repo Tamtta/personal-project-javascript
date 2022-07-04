@@ -6,10 +6,10 @@ class Pupils {
         this.pupils = [];
     }
     add(data) {
-        data.id = `${Math.random().toString(36).substring(3, 11)}`;
-        if (!(data.sex = this.sex)) {
-            throw new Error("incorrect sex");
+        if (!Date.parse(data.dateOfBirth)) {
+            throw new Error("Date format is incorrect");
         }
+        data.id = `${Math.random().toString(36).substring(3, 11)}`;
         this.pupils.push(data);
         return data;
     }
