@@ -15,9 +15,6 @@ export class Groups {
   }
 
   addPupil(groupId: string, pupil: typePupil) {
-    if (typeof groupId !== "string") {
-      throw new Error("Type of parameter is not a string!");
-    }
     const room = this.groups.find((g) => g.id == groupId);
     room.pupils.push(pupil);
     return room;

@@ -5,7 +5,7 @@ export type subjectLMS = {
   description?: string;
 };
 
-type sex = "male" | "female";
+type sex = string;
 
 export type typeTeacher = {
   name: {

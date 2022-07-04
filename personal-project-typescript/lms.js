@@ -1,22 +1,17 @@
-"use strict";
-exports.__esModule = true;
-exports.LMS = void 0;
-var LMS = /** @class */ (function () {
-    function LMS() {
+export class LMS {
+    constructor() {
         this.subjects = [];
     }
-    LMS.prototype.add = function (subject) {
+    add(subject) {
         this.subjects.push(subject);
-    };
-    LMS.prototype.remove = function (subject) {
-        this.subjects = this.subjects.filter(function (s) { return s.id != subject.id; });
-    };
-    LMS.prototype.verify = function (subject) {
-        return this.subjects.some(function (s) { return s.id == subject.id; });
-    };
-    LMS.prototype.readAll = function () {
+    }
+    remove(subject) {
+        this.subjects = this.subjects.filter((s) => s.id != subject.id);
+    }
+    verify(subject) {
+        return this.subjects.some((s) => s.id == subject.id);
+    }
+    readAll() {
         return this.subjects;
-    };
-    return LMS;
-}());
-exports.LMS = LMS;
+    }
+}

@@ -1,6 +1,7 @@
 import { subjectLMS } from "./types";
+import { interfaceLMS } from "./interfaces";
 
-export class LMS {
+export class LMS implements interfaceLMS {
   subjects: subjectLMS[] = [];
 
   add(subject: subjectLMS) {
@@ -11,7 +12,7 @@ export class LMS {
     this.subjects = this.subjects.filter((s) => s.id != subject.id);
   }
 
-  verify(subject: subjectLMS): boolean {
+  verify(subject: subjectLMS) {
     return this.subjects.some((s) => s.id == subject.id);
   }
 

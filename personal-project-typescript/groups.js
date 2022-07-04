@@ -1,41 +1,36 @@
-"use strict";
-exports.__esModule = true;
-exports.Groups = void 0;
-var Groups = /** @class */ (function () {
-    function Groups() {
+export class Groups {
+    constructor() {
         this.groups = [];
     }
-    Groups.prototype.add = function (roomID) {
-        var room = {
-            id: "".concat(Math.random().toString(36).substring(2, 10)),
+    add(roomID) {
+        const room = {
+            id: `${Math.random().toString(36).substring(2, 10)}`,
             room: roomID,
-            pupils: []
+            pupils: [],
         };
         this.groups.push(room);
         return room.id;
-    };
-    Groups.prototype.addPupil = function (groupId, pupil) {
+    }
+    addPupil(groupId, pupil) {
         if (typeof groupId !== "string") {
             throw new Error("Type of parameter is not a string!");
         }
-        var room = this.groups.find(function (g) { return g.id == groupId; });
+        const room = this.groups.find((g) => g.id == groupId);
         room.pupils.push(pupil);
         return room;
-    };
-    Groups.prototype.removePupil = function (groupId, pupilId) {
-        var room = this.groups.find(function (g) { return g.id == groupId; });
-        room.pupils = room.pupils.filter(function (p) { return p.id !== pupilId; });
-    };
-    Groups.prototype.update = function (groupId, updateGroup) {
-        var room = this.groups.find(function (g) { return g.id == groupId; });
+    }
+    removePupil(groupId, pupilId) {
+        const room = this.groups.find((g) => g.id == groupId);
+        room.pupils = room.pupils.filter((p) => p.id !== pupilId);
+    }
+    update(groupId, updateGroup) {
+        const room = this.groups.find((g) => g.id == groupId);
         room.room = updateGroup.room;
-    };
-    Groups.prototype.read = function (groupId) {
-        return this.groups.find(function (g) { return g.id == groupId; });
-    };
-    Groups.prototype.readAll = function () {
+    }
+    read(groupId) {
+        return this.groups.find((g) => g.id == groupId);
+    }
+    readAll() {
         return this.groups;
-    };
-    return Groups;
-}());
-exports.Groups = Groups;
+    }
+}

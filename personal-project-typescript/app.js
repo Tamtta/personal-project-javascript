@@ -1,159 +1,163 @@
-"use strict";
-exports.__esModule = true;
-var subject_js_1 = require("./subject.js");
-var lms_js_1 = require("./lms.js");
-var teachers_js_1 = require("./teachers.js");
-var pupils_js_1 = require("./pupils.js");
-var groups_js_1 = require("./groups.js");
-var gradebooks_js_1 = require("./gradebooks.js");
+import { Subject } from "./subject.js";
+import { LMS } from "./lms.js";
+import { Teachers } from "./teachers.js";
+import { Pupils } from "./pupils.js";
+import { Groups } from "./groups.js";
+import { Gradebooks } from "./gradebooks.js";
 function main() {
     // Subject 🔴
-    var history = new subject_js_1.Subject({
+    const history = new Subject({
         title: "History",
-        lessons: 24
+        lessons: 24,
     });
-    var math = new subject_js_1.Subject({
+    const math = new Subject({
         title: "Math",
-        lessons: 30
+        lessons: 30,
     });
     // console.log("history ID", history.id, "math ID", math.id);
     // LMS 🔴
-    var lms = new lms_js_1.LMS();
+    const lms = new LMS();
     lms.add(history);
     lms.add(math);
     // lms.remove(history);
     // console.log(lms.verify(math), lms.verify(history));
     // console.log(lms.readAll());
     // Teachers 🔴
-    var teachers = new teachers_js_1.Teachers();
-    var teacherTamta = {
+    const teachers = new Teachers();
+    const teacherTamta = {
         name: {
             first: "Tamta",
-            last: "Jojua"
+            last: "Jojua",
         },
         dateOfBirth: "01-01-2000",
         emails: [
             {
                 email: "tamta@gmail.com",
-                primary: true
+                primary: true,
             },
         ],
         phones: [
             {
                 phone: "+995555111111",
-                primary: true
+                primary: true,
             },
         ],
         sex: "male",
         subjects: [
             {
-                subject: "history"
+                subject: "history",
             },
-        ]
+        ],
+        // description: 123,
     };
-    var teacherNinka = {
+    const teacherNinka = {
         name: {
             first: "Ninka ",
-            last: "Benidze"
+            last: "Benidze",
         },
         dateOfBirth: "01-01-1999",
         emails: [
             {
                 email: "ninka@gmail.com",
-                primary: true
+                primary: true,
             },
         ],
         phones: [
             {
                 phone: "+995555888888",
-                primary: true
+                primary: true,
             },
         ],
         sex: "male",
         subjects: [
             {
-                subject: "math"
+                subject: "math",
             },
-        ]
+        ],
+        // description: 123,
     };
-    var newTeacher = {
+    const newTeacher = {
         name: {
             first: "123",
-            last: "123"
+            last: "123",
         },
         dateOfBirth: "01-01-2000",
         emails: [
             {
                 email: "tamta@mail.ru",
-                primary: true
+                primary: true,
             },
         ],
         phones: [
             {
                 phone: "+995555223344",
-                primary: true
+                primary: true,
             },
         ],
         sex: "female",
         subjects: [
             {
-                subject: "history"
+                subject: "history",
             },
-        ]
+        ],
+        // description: 123,
     };
-    var teacherId = teachers.add(teacherTamta);
+    const teacherId = teachers.add(teacherTamta);
     //   const teacherId2 = teachers.add(teacherNinka);
     //   console.log("teacher ID 1", teacherId, "teacher ID 2", teacherId2);
     //   console.log("before ", teachers.read(teacherId));
     //   console.log("update", teachers.update(teacherId, newTeacher));
     //   console.log("after ", teachers.read(teacherId));
     // pupils 🔴
-    var pupils = new pupils_js_1.Pupils();
-    var pupilAnano = {
+    const pupils = new Pupils();
+    const pupilAnano = {
         name: {
             first: "Anano",
-            last: "Tskhadadze"
+            last: "Tskhadadze",
         },
         dateOfBirth: "01-01-2000",
         phones: [
             {
                 phone: "+995555112233",
-                primary: true
+                primary: true,
             },
         ],
-        sex: "female"
+        sex: "female",
+        // description: 123,
     };
-    var newPupil = {
+    const newPupil = {
         name: {
             first: "Robert",
-            last: "Oganezov"
+            last: "Oganezov",
         },
         dateOfBirth: "01-01-2000",
         phones: [
             {
                 phone: "+995555555555",
-                primary: true
+                primary: true,
             },
         ],
-        sex: "male"
+        sex: "male",
+        // description: 123,
     };
-    var pupil123 = {
+    const pupil123 = {
         name: {
             first: "123",
-            last: "123"
+            last: "123",
         },
         dateOfBirth: "01-01-2000",
         phones: [
             {
                 phone: "+995555118865",
-                primary: true
+                primary: true,
             },
         ],
-        sex: "male"
+        sex: "male",
+        // description: 123,
     };
-    var pupil = pupils.add(pupilAnano);
+    const pupil = pupils.add(pupilAnano);
     // console.log(pupil);
-    var pupil2 = pupils.add(pupil123);
+    const pupil2 = pupils.add(pupil123);
     // console.log("pupil id", pupil.id);
     // console.log("before", pupils.read(pupil.id));
     // const updated = pupils.update(pupil.id, newPupil);
@@ -161,10 +165,10 @@ function main() {
     // console.log("after", pupils.read(pupil.id));
     // console.log(pupils.remove(pupil.id));
     // // // Groups
-    var room = 236;
+    const room = 236;
     // const room1 = 240;
-    var groups = new groups_js_1.Groups();
-    var groupId = groups.add(room);
+    const groups = new Groups();
+    const groupId = groups.add(room);
     // const groupId1 = groups.add(room1);
     console.log("group ID", groupId);
     groups.addPupil(groupId, pupil);
@@ -174,18 +178,18 @@ function main() {
     // groups.removePupil(groupId, pupil.id);
     console.log(groups);
     groups.update(groupId, {
-        room: 237
+        room: 237,
     });
     console.log("after", groups.read(groupId));
     console.log("readall", groups.readAll());
     // gradebook
-    var pupilId = pupil.id;
-    var record = {
+    const pupilId = pupil.id;
+    const record = {
         pupilId: pupilId,
         teacherId: teacherId,
         subjectId: history.id,
         lesson: 1,
-        mark: 9
+        mark: 9,
     };
     // const record2 = {
     //   pupilId: pupilId,
@@ -194,8 +198,8 @@ function main() {
     //   lesson: 2,
     //   mark: 10,
     // };
-    var gradebooks = new gradebooks_js_1.Gradebooks(groups, teachers, lms);
-    var gradebookId = gradebooks.add(groupId);
+    const gradebooks = new Gradebooks(groups, teachers, lms);
+    const gradebookId = gradebooks.add(groupId);
     console.log("gradebook id", gradebookId);
     // console.log(gradebooks.clear());
     gradebooks.addRecord(gradebookId, record);

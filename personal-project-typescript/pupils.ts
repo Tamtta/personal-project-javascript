@@ -1,12 +1,13 @@
 import { typePupil } from "./types";
+import { interfacePupils } from "./interfaces";
 
-export class Pupils {
+export class Pupils implements interfacePupils {
   pupils: typePupil[] = [];
 
-  add(data: typePupil): string {
+  add(data: typePupil) {
     data.id = `${Math.random().toString(36).substring(3, 11)}`;
     this.pupils.push(data);
-    return data.id;
+    return data;
   }
 
   read(id: string) {

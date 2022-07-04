@@ -1,9 +1,10 @@
 import { typeTeacher } from "./types";
+import { interfaceTeachers } from "./interfaces";
 
-export class Teachers {
+export class Teachers implements interfaceTeachers {
   teachers: typeTeacher[] = [];
 
-  add(data: typeTeacher): string {
+  add(data: typeTeacher) {
     data.id = `${Math.random().toString(36).substring(4, 12)}`;
     this.teachers.push(data);
     return data.id;
