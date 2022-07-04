@@ -7,6 +7,9 @@ class Pupils {
     }
     add(data) {
         data.id = `${Math.random().toString(36).substring(3, 11)}`;
+        if (!(data.sex = this.sex)) {
+            throw new Error("incorrect sex");
+        }
         this.pupils.push(data);
         return data;
     }

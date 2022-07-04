@@ -3,10 +3,12 @@ import { interfaceTeachers } from "./interfaces";
 
 export class Teachers implements interfaceTeachers {
   teachers: typeTeacher[] = [];
-  // sex: male | female;
+  sex: "male" | "female";
   add(data: typeTeacher) {
     data.id = `${Math.random().toString(36).substring(4, 12)}`;
-    // data.sex = "male";
+    if (!(data.sex = this.sex)) {
+      throw new Error("incorrect sex");
+    }
     this.teachers.push(data);
     return data.id;
   }

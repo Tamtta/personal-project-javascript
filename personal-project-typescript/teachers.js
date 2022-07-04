@@ -5,10 +5,11 @@ class Teachers {
     constructor() {
         this.teachers = [];
     }
-    // sex: male | female;
     add(data) {
         data.id = `${Math.random().toString(36).substring(4, 12)}`;
-        // data.sex = "male";
+        if (!(data.sex = this.sex)) {
+            throw new Error("incorrect sex");
+        }
         this.teachers.push(data);
         return data.id;
     }

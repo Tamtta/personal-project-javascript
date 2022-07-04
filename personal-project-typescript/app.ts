@@ -45,7 +45,7 @@ function main() {
         primary: true,
       },
     ],
-    sex: "male",
+    sex: "123",
     subjects: [
       {
         subject: "history",
