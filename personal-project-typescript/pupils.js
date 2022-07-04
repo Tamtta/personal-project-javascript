@@ -1,11 +1,14 @@
-export class Pupils {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Pupils = void 0;
+class Pupils {
     constructor() {
         this.pupils = [];
     }
     add(data) {
         data.id = `${Math.random().toString(36).substring(3, 11)}`;
         this.pupils.push(data);
-        return data.id;
+        return data;
     }
     read(id) {
         return this.pupils.find((p) => p.id == id);
@@ -20,3 +23,4 @@ export class Pupils {
         this.pupils = this.pupils.filter((p) => p.id != pupilId);
     }
 }
+exports.Pupils = Pupils;

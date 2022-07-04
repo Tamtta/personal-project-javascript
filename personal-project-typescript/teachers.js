@@ -1,9 +1,14 @@
-export class Teachers {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Teachers = void 0;
+class Teachers {
     constructor() {
         this.teachers = [];
     }
+    // sex: male | female;
     add(data) {
         data.id = `${Math.random().toString(36).substring(4, 12)}`;
+        // data.sex = "male";
         this.teachers.push(data);
         return data.id;
     }
@@ -20,3 +25,4 @@ export class Teachers {
         this.teachers = this.teachers.filter((t) => t.id != teacherId);
     }
 }
+exports.Teachers = Teachers;

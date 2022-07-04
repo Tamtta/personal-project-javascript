@@ -1,7 +1,7 @@
 import { Groups } from "./groups";
 import { LMS } from "./lms";
 import { Teachers } from "./teachers";
-import { subjectLMS, typeRecord } from "./types";
+import { subjectLMS, typePupil, typeRecord } from "./types";
 import { typeGroup } from "./types";
 import { typeTeacher } from "./types";
 
@@ -42,11 +42,10 @@ export class Gradebooks {
       (gradebook) => gradebook.gradebookId == gradebookId
     );
 
-    // console.log(this.groups.read(gradebookId));
     const recordsData = gradeBook.records.filter(
       (r: { pupilId: string }) => r.pupilId == pupilId
     );
-    const pupilData = this.groups
+    const pupilData: typePupil = this.groups
       .read(gradebookId)
       .pupils.find((p) => p.id == pupilId);
 
@@ -54,12 +53,13 @@ export class Gradebooks {
       name: `${pupilData.name.first} ${pupilData.name.last}`,
       records: recordsData.map(
         (r: {
+          pupilId: string;
           teacherId: string;
           subjectId: string;
           lesson: number;
           mark: number;
         }) => {
-          const teacherData = this.teachers.read(r.teacherId);
+          const teacherData: typeTeacher = this.teachers.read(r.teacherId);
 
           const subjectData = this.lms
             .readAll()

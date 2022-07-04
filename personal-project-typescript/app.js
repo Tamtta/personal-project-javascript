@@ -1,29 +1,31 @@
-import { Subject } from "./subject.js";
-import { LMS } from "./lms.js";
-import { Teachers } from "./teachers.js";
-import { Pupils } from "./pupils.js";
-import { Groups } from "./groups.js";
-import { Gradebooks } from "./gradebooks.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const subject_js_1 = require("./subject.js");
+const lms_js_1 = require("./lms.js");
+const teachers_js_1 = require("./teachers.js");
+const pupils_js_1 = require("./pupils.js");
+const groups_js_1 = require("./groups.js");
+const gradebooks_js_1 = require("./gradebooks.js");
 function main() {
     // Subject 🔴
-    const history = new Subject({
+    const history = new subject_js_1.Subject({
         title: "History",
         lessons: 24,
     });
-    const math = new Subject({
+    const math = new subject_js_1.Subject({
         title: "Math",
         lessons: 30,
     });
     // console.log("history ID", history.id, "math ID", math.id);
     // LMS 🔴
-    const lms = new LMS();
+    const lms = new lms_js_1.LMS();
     lms.add(history);
     lms.add(math);
     // lms.remove(history);
     // console.log(lms.verify(math), lms.verify(history));
     // console.log(lms.readAll());
     // Teachers 🔴
-    const teachers = new Teachers();
+    const teachers = new teachers_js_1.Teachers();
     const teacherTamta = {
         name: {
             first: "Tamta",
@@ -94,7 +96,7 @@ function main() {
                 primary: true,
             },
         ],
-        sex: "female",
+        sex: "male",
         subjects: [
             {
                 subject: "history",
@@ -109,7 +111,7 @@ function main() {
     //   console.log("update", teachers.update(teacherId, newTeacher));
     //   console.log("after ", teachers.read(teacherId));
     // pupils 🔴
-    const pupils = new Pupils();
+    const pupils = new pupils_js_1.Pupils();
     const pupilAnano = {
         name: {
             first: "Anano",
@@ -157,23 +159,23 @@ function main() {
     };
     const pupil = pupils.add(pupilAnano);
     // console.log(pupil);
-    const pupil2 = pupils.add(pupil123);
+    // const pupil2 = pupils.add(pupil123);
     // console.log("pupil id", pupil.id);
     // console.log("before", pupils.read(pupil.id));
     // const updated = pupils.update(pupil.id, newPupil);
     // console.log(updated);
     // console.log("after", pupils.read(pupil.id));
-    // console.log(pupils.remove(pupil.id));
+    // pupils.remove(pupil.id);
     // // // Groups
     const room = 236;
     // const room1 = 240;
-    const groups = new Groups();
+    const groups = new groups_js_1.Groups();
     const groupId = groups.add(room);
     // const groupId1 = groups.add(room1);
     console.log("group ID", groupId);
     groups.addPupil(groupId, pupil);
     // groups.addPupil(groupId, updated);
-    groups.addPupil(groupId, pupil2);
+    // groups.addPupil(groupId, pupil2);
     console.log("before ", groups.read(groupId));
     // groups.removePupil(groupId, pupil.id);
     console.log(groups);
@@ -198,7 +200,7 @@ function main() {
     //   lesson: 2,
     //   mark: 10,
     // };
-    const gradebooks = new Gradebooks(groups, teachers, lms);
+    const gradebooks = new gradebooks_js_1.Gradebooks(groups, teachers, lms);
     const gradebookId = gradebooks.add(groupId);
     console.log("gradebook id", gradebookId);
     // console.log(gradebooks.clear());

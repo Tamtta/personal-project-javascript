@@ -97,7 +97,7 @@ function main() {
         primary: true,
       },
     ],
-    sex: "female",
+    sex: "male",
     subjects: [
       {
         subject: "history",
@@ -161,13 +161,13 @@ function main() {
   };
   const pupil = pupils.add(pupilAnano);
   // console.log(pupil);
-  const pupil2 = pupils.add(pupil123);
+  // const pupil2 = pupils.add(pupil123);
   // console.log("pupil id", pupil.id);
   // console.log("before", pupils.read(pupil.id));
   // const updated = pupils.update(pupil.id, newPupil);
   // console.log(updated);
   // console.log("after", pupils.read(pupil.id));
-  // console.log(pupils.remove(pupil.id));
+  // pupils.remove(pupil.id);
 
   // // // Groups
   const room = 236;
@@ -178,7 +178,7 @@ function main() {
   console.log("group ID", groupId);
   groups.addPupil(groupId, pupil);
   // groups.addPupil(groupId, updated);
-  groups.addPupil(groupId, pupil2);
+  // groups.addPupil(groupId, pupil2);
   console.log("before ", groups.read(groupId));
   // groups.removePupil(groupId, pupil.id);
   console.log(groups);

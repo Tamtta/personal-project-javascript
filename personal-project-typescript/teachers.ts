@@ -1,11 +1,12 @@
-import { typeTeacher } from "./types";
+import { typeTeacher, male, female } from "./types";
 import { interfaceTeachers } from "./interfaces";
 
 export class Teachers implements interfaceTeachers {
   teachers: typeTeacher[] = [];
-
+  // sex: male | female;
   add(data: typeTeacher) {
     data.id = `${Math.random().toString(36).substring(4, 12)}`;
+    // data.sex = "male";
     this.teachers.push(data);
     return data.id;
   }

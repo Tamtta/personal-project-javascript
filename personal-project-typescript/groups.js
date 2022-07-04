@@ -1,4 +1,7 @@
-export class Groups {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Groups = void 0;
+class Groups {
     constructor() {
         this.groups = [];
     }
@@ -12,9 +15,6 @@ export class Groups {
         return room.id;
     }
     addPupil(groupId, pupil) {
-        if (typeof groupId !== "string") {
-            throw new Error("Type of parameter is not a string!");
-        }
         const room = this.groups.find((g) => g.id == groupId);
         room.pupils.push(pupil);
         return room;
@@ -34,3 +34,4 @@ export class Groups {
         return this.groups;
     }
 }
+exports.Groups = Groups;

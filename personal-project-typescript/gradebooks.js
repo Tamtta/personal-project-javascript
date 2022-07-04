@@ -1,4 +1,7 @@
-export class Gradebooks {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Gradebooks = void 0;
+class Gradebooks {
     constructor(groups, teachers, lms) {
         this.gradeBooks = [];
         this.groups = groups;
@@ -22,7 +25,6 @@ export class Gradebooks {
     }
     read(gradebookId, pupilId) {
         const gradeBook = this.gradeBooks.find((gradebook) => gradebook.gradebookId == gradebookId);
-        // console.log(this.groups.read(gradebookId));
         const recordsData = gradeBook.records.filter((r) => r.pupilId == pupilId);
         const pupilData = this.groups
             .read(gradebookId)
@@ -48,3 +50,4 @@ export class Gradebooks {
         return this.gradeBooks.find((grBook) => grBook.gradebookId == gradebookId);
     }
 }
+exports.Gradebooks = Gradebooks;

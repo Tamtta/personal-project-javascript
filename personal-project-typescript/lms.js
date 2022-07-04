@@ -1,4 +1,7 @@
-export class LMS {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LMS = void 0;
+class LMS {
     constructor() {
         this.subjects = [];
     }
@@ -15,3 +18,4 @@ export class LMS {
         return this.subjects;
     }
 }
+exports.LMS = LMS;
