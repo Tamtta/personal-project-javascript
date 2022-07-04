@@ -3,10 +3,10 @@ import { typePupil } from "./types";
 export class Pupils {
   pupils: typePupil[] = [];
 
-  add(data: typePupil) {
+  add(data: typePupil): string {
     data.id = `${Math.random().toString(36).substring(3, 11)}`;
     this.pupils.push(data);
-    return data;
+    return data.id;
   }
 
   read(id: string) {
@@ -17,7 +17,6 @@ export class Pupils {
     const index = this.pupils.findIndex((p) => p.id == id);
     updatedProfile.id = id;
     this.pupils.splice(index, 1, updatedProfile);
-    // this.pupils.slice(index, index + 1);
     return updatedProfile;
   }
 

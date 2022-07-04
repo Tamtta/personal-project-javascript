@@ -11,7 +11,7 @@ export class LMS {
     this.subjects = this.subjects.filter((s) => s.id != subject.id);
   }
 
-  verify(subject: subjectLMS) {
+  verify(subject: subjectLMS): boolean {
     return this.subjects.some((s) => s.id == subject.id);
   }
 

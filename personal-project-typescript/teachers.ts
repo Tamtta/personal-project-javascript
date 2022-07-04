@@ -3,7 +3,7 @@ import { typeTeacher } from "./types";
 export class Teachers {
   teachers: typeTeacher[] = [];
 
-  add(data: typeTeacher) {
+  add(data: typeTeacher): string {
     data.id = `${Math.random().toString(36).substring(4, 12)}`;
     this.teachers.push(data);
     return data.id;
